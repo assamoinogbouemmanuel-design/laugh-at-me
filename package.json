@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^5.0.5",
+    "@astrojs/vercel": "^8.2.11",
     "@clerk/clerk-react": "^5.61.6",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
