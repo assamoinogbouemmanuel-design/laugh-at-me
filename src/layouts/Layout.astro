@@ -1,0 +1,17 @@
+---
+import ConvexClientProvider from '../lib/convex.tsx';
+---
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LaughHub 😂</title>
+</head>
+<body class="bg-zinc-950 text-white min-h-screen">
+  <div id="app">
+    <ConvexClientProvider client:load>
+      <slot />
+    </ConvexClientProvider>
+  </div>
+</body>
+</html>
