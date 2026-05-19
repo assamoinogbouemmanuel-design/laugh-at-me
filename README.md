@@ -1,67 +1,85 @@
-# 🧑‍🚀 Convex w/ Astro & React
+# 😂 LaughHub
 
-An [Astro](https://docs.astro.build) + [Convex](https://convex.dev) starter project
-with React and Tailwind CSS v4.
+Le réseau social où on vient **juste pour rire**.
 
-## Using Astro with Convex
+## 🌟 Présentation
 
-To enable Convex in your Astro project:
+LaughHub est une plateforme fun où les utilisateurs partagent des blagues, memes, histoires drôles et interagissent principalement avec le bouton **😂 Laugh**.
 
-1. Install `convex` and run `npx convex dev` to start syncing changes to your
-   Convex backend. This will create a `convex` folder in your project if you
-   don't have one already.
-2. Wrap components that access Convex in a `ConvexProvider` component. In this
-   template, this is done with `withConvexProvider` in `src/lib/convex.tsx`.
-   See [CommentForm](src/components/CommentForm.tsx) for a usage example.
-3. Add these components to your `.astro` pages as usual. See
-   [index.astro](src/pages/index.astro) for an example.
-4. Use `useQuery` and other Convex hooks in the components as usual.
+## ✨ Fonctionnalités
 
-## withConvexProvider
+- Authentification avec Clerk
+- Publication de blagues (texte + images)
+- Feed en temps réel
+- Bouton Laugh avec animation
+- Upload d'images
+- Design moderne dark mode
 
-The `withConvexProvider` function is a convenience wrapper that wraps a React
-component in a `ConvexProvider` component. This is necessary because Astro
-context providers don't work when used in `.astro` files.
+## 🛠️ Technologies
 
-Usage:
+- **Frontend** : Astro 5 + React
+- **Backend** : Convex
+- **Auth** : Clerk
+- **Styling** : Tailwind CSS
+- **Déploiement** : Vercel + Convex Cloud
 
-```tsx
-// CommentForm.tsx
-export default withConvexProvider(function CommentForm() {
-    ... normal component code ...
-});
+## 🚀 Installation et Lancement
+
+### 1. Clone le projet
+```bash
+git clone <ton-repo>
+cd laughhub
 ```
 
-Implementation:
-
-```tsx
-// Initialized once so all components share the same client.
-const client = new ConvexReactClient(CONVEX_URL);
-
-export function withConvexProvider<Props extends JSX.IntrinsicAttributes>(
-  Component: FunctionComponent<Props>,
-) {
-  return function WithConvexProvider(props: Props) {
-    return (
-      <ConvexProvider client={client}>
-        <Component {...props} />
-      </ConvexProvider>
-    );
-  };
-}
+### 2. Installe les dépendances
+```bash
+npm install
 ```
 
-## Installation
+### 3. Variables d'environnement
 
-```sh
-npm create convex@latest my-app -- --template astro
+Crée un fichier `.env` à la racine :
+
+```env
+PUBLIC_CONVEX_URL=your_convex_url
+PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
 ```
 
-See [create-convex](https://github.com/get-convex/templates/tree/main/create-convex#create-convex) for more details.
+### 4. Lancement en développement
 
-## 📚 Learn More
+```bash
+# Terminal 1
+npx convex dev
 
-- [Convex Docs](https://docs.convex.dev)
-- [Astro Docs](https://docs.astro.build)
-- [React Docs](https://react.dev)
-- [Tailwind CSS v4 Docs](https://tailwindcss.com/docs/v4-beta#css-configuration-in-depth)
+# Terminal 2
+npm run dev
+```
+
+## Structure du projet
+
+```
+laughhub/
+├── convex/             # Backend (schema, functions)
+├── src/
+│   ├── components/     # Composants React
+│   ├── layouts/
+│   ├── pages/
+│   └── lib/
+├── .env
+└── astro.config.mjs
+```
+
+## Commandes utiles
+
+- `npm run dev` → Lancer le projet complet
+- `npx convex dev` → Lancer seulement le backend
+- `npm run build` → Build pour la production
+
+## Prochaines évolutions
+
+- Système de commentaires
+- Page de profil
+- Leaderboard des utilisateurs les plus drôles
+- Meme generator intégré
+- Dark/Light mode
+made with convex astro 

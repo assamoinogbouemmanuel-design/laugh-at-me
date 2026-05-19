@@ -1,5 +1,5 @@
 ---
-import ConvexClientProvider from '../lib/convex.tsx';
+import '../styles/global.css';
 ---
 <html lang="fr">
 <head>
@@ -9,9 +9,7 @@ import ConvexClientProvider from '../lib/convex.tsx';
 </head>
 <body class="bg-zinc-950 text-white min-h-screen">
   <div id="app">
-    <ConvexClientProvider client:load>
-      <slot />
-    </ConvexClientProvider>
+    <slot />
   </div>
 </body>
 </html>

@@ -22,4 +22,13 @@ export default defineSchema({
   })
     .index("by_creation", ["createdAt"])
     .index("by_laughs", ["laughs"]),
+
+  comments: defineTable({
+    postId: v.id("posts"),
+    userId: v.id("users"),
+    text: v.string(),
+    createdAt: v.number(),
+  })
+    .index("by_post", ["postId"])
+    .index("by_creation", ["createdAt"]),
 });
